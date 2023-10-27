@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Moja Baza Filmowa</h1>
+<ul>
+    <li><a href="/add_person/">dodaj osobe</a> </li>
+    <li><a href="/persons/">osoby</a> </li>
+    <li><a href="/add_genre/">dodaj gatunek</a> </li>
+    <li><a href="/genres/">gatunki</a> </li>
+      <li><a href="/add_movie/">dodaj film</a> </li>
+    <li><a href="/movies/">filmy</a> </li>
+
+</ul>
+<p>
+{% block zawartosc %}
+    ten kod bedzie podmieniany
+{% endblock %}
+</p>
+</body>
+</html>
