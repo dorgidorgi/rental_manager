@@ -3,10 +3,9 @@ from django.db import models
 # Create your models here.
 
 class Apartment(models.Model):
-    objects = None
     name = models.CharField(max_length=160)
     location = models.CharField(max_length=160)
-
+    objects = None
 class Guest(models.Model):
     name = models.CharField(max_length=60)
 

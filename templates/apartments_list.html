@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block zawartość %}
+    <ul>
+        {% for movie in movies %}
+            <li>
+                <a href="/edit_apartment/{{ apartment.id }}/"> {{ apartment }}</a>
+                <a href="/delete_apartment/{{ apartment.id }}/"> Usuń</a>
+
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

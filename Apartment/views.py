@@ -1,10 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
 from django.contrib.auth.models import Group
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
-from django.views import View
 from django.views.generic import CreateView, DetailView, DeleteView, UpdateView, ListView
+from django.shortcuts import render, redirect
+from django.views import View
 from django.shortcuts import render
 from Apartment.models import Apartment
 
@@ -16,11 +16,17 @@ class IndexView(View):
         return render(request, 'base.html', {'date': 'To będzie strona główna'})
 
 
+class ListApartmentsView(View):
+    def get(self, request):
+        apartments = Apartment.objects.all()
+        return render(request, 'apartments_list.html', {'apartments': apartments})
+
+
 class AddApartmentView(View):
 
     def get(self, request):
         apartments = Apartment.objects.all()
-        return render(request, 'form_apartment.html', {'apartments':apartments})
+        return render(request, 'form_apartment.html', {'apartments': apartments})
 
     def post(self, request):
         name = request.POST.get('name')
@@ -28,5 +34,38 @@ class AddApartmentView(View):
         Apartment.objects.create(name=name, location=location)
 
         return redirect('/add_apartment/')
+
+
+class EditApartmentView(View):
+
+
+    def get(self, request, id):
+        apartment = Apartment.objects.get(pk=id)
+        return render(request, 'form_apartment.html', {'apartment': apartment})
+
+    def post(self, request, id):
+        apartment = Apartment.objects.get(pk=id)
+        name = request.POST['name']
+        location = request.POST['location']
+        apartment.name = name
+        apartment.location = location
+        apartment.save()
+        return redirect('/apartments/')
+
+
+class DeleteApartmentView(View):
+
+
+    def get(self,request, id):
+        apartment = Apartment.objects.get(pk=id)
+        return render(request, 'delete_apartment.html', {'object': apartment})
+
+
+    def post(self, request, id):
+        odp = request.POST['odp']
+        if odp == 'Tak':
+            Apartment.objects.get(pk=id).delete()
+        return redirect('/apartments/')
+
 
 
