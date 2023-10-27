@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.IndexView.as_view(), name='index'),
     path('apartments/', views.ListApartmentsView.as_view()),
-    path('add_apartment', views.AddApartmentView.as_view()),
+    path('add_apartment/', views.AddApartmentView.as_view()),
     path('edit_apartment/<int:id>/', views.EditApartmentView.as_view()),
     path('delete_apartment/<int:id>/', views.DeleteApartmentView.as_view()),
 
