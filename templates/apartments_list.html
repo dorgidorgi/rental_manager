@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
-{% block zawartość %}
+{% block ppp %}
     <ul>
-        {% for movie in movies %}
+        {% for apartment in apartments %}
             <li>
                 <a href="/edit_apartment/{{ apartment.id }}/"> {{ apartment }}</a>
                 <a href="/delete_apartment/{{ apartment.id }}/"> Usuń</a>

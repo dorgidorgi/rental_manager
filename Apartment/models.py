@@ -5,7 +5,6 @@ from django.db import models
 class Apartment(models.Model):
     name = models.CharField(max_length=160)
     location = models.CharField(max_length=160)
-    objects = None
 
 
 class Guest(models.Model):
@@ -17,7 +16,7 @@ class Staff(models.Model):
 
 
 class Reservation(models.Model):
-    apartment = models.ForeignKey(Apartment, on_delete=models.CASCADE)  #where the guest comes
+    apartment = models.ForeignKey(Apartment, on_delete=models.PROTECT)  #where the guest comes
     check_in_date = models.DateField()  #arrival time
     check_out_date = models.DateField() #leave time
     guest = models.ForeignKey(Guest, on_delete=models.CASCADE) #who comes

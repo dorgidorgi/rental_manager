@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+    {% csrf_token %}
+
+    <label for="guest">Imię i nazwisko gościa:</label>
+    <input type="text" id="guest" name="guest" value="Wartość_z_bazy_danych" readonly><br><br>
+
+    <label for="reservation_id">Numer rezerwacji:</label>
+    <input type="text" id="reservation_id" name="reservation_id" value="Wartość_z_bazy_danych" readonly><br><br>
+
+
+    <label for="review_text">Tekst recenzji:</label><br>
+    <textarea id="review_text" name="review_text" rows="6" cols="40"></textarea><br><br>
+    <label for="general_review">Ogólna ocena:</label>
+    <input type="range" id="general_review" name="general_review" min="1" max="5" step="1" value="5" onchange="document.querySelector('output[for=general_review]').textContent = ['Źle: 1', 'Słabo: 2', 'Przeciętnie: 3', 'Dobrze: 4', 'Bardzo dobrze: 5'][this.value-1]">
+    <output for="general_review">Bardzo dobrze: 5</output><br><br>
+
+    <label for="cleanness">Czystość:</label>
+    <input type="range" id="cleanness" name="cleanness" min="1" max="5" step="1" value="5" onchange="document.querySelector('output[for=cleanness]').textContent = ['Źle: 1', 'Słabo: 2', 'Przeciętnie: 3', 'Dobrze: 4', 'Bardzo dobrze: 5'][this.value-1]">
+    <output for="cleanness">Bardzo dobrze: 5</output><br><br>
+
+    <label for="localization">Lokalizacja:</label>
+    <input type="range" id="localization" name="localization" min="1" max="5" step="1" value="5" onchange="document.querySelector('output[for=localization]').textContent = ['Źle: 1', 'Słabo: 2', 'Przeciętnie: 3', 'Dobrze: 4', 'Bardzo dobrze: 5'][this.value-1]">
+    <output for="localization">Bardzo dobrze: 5</output><br><br>
+
+    <label for="communication">Komunikaja:</label>
+    <input type="range" id="communication" name="communication" min="1" max="5" step="1" value="5" onchange="document.querySelector('output[for=communication]').textContent = ['Źle: 1', 'Słabo: 2', 'Przeciętnie: 3', 'Dobrze: 4', 'Bardzo dobrze: 5'][this.value-1]">
+    <output for="communication">Bardzo dobrze: 5 </output><br><br>
+
+    <label for="check_in">Zameldowanie:</label>
+    <input type="range" id="check_in" name="check_in" min="1" max="5" step="1" value="5" onchange="document.querySelector('output[for=check_in]').textContent = ['Źle: 1', 'Słabo: 2', 'Przeciętnie: 3', 'Dobrze: 4', 'Bardzo dobrze: 5'][this.value-1]">
+    <output for="check_in">Bardzo dobrze: 5</output><br><br>
+
+    <label for="offer_consistence">Zgodność z ofertą:</label>
+    <input type="range" id="offer_consistence" name="offer_consistence" min="1" max="5" step="1" value="5" onchange="document.querySelector('output[for=offer_consistence]').textContent = ['Źle: 1', 'Słabo: 2', 'Przeciętnie: 3', 'Dobrze: 4', 'Bardzo dobrze: 5'][this.value-1]">
+    <output for="offer_consistence">Bardzo dobrze: 5</output><br><br>
+
+    <button type=submit>Wyślij</button>
+</form>
+
+</body>
+</html>

@@ -67,5 +67,26 @@ class DeleteApartmentView(View):
             Apartment.objects.get(pk=id).delete()
         return redirect('/apartments/')
 
+#
+# from django.shortcuts import render
+# from django.http import HttpResponse
+# from django.views import View
+# from .models import GuestReview
+# from .forms import GuestReviewForm  # Zaimportuj odpowiednią formę
 
-
+# class GuestReviewView(View):
+#     def get(self, request, review_id):
+#         try:
+#             review = GuestReview.objects.get(pk=review_id)
+#             return HttpResponse(f"Recenzja gościa: {review.guest}, Recenzja: {review.review_text}")
+#         except GuestReview.DoesNotExist:
+#             return HttpResponse('Recenzja nie istnieje', status=404)
+#
+#     def post(self, request):
+#         form = GuestReviewForm(request.POST)  # Utwórz formularz na podstawie danych POST
+#
+#         if form.is_valid():  # Sprawdź, czy dane w formularzu są poprawne
+#             review = form.save()  # Zapisz recenzję w bazie danych
+#             return HttpResponse('Recenzja została dodana', status=201)
+#         else:
+#             return HttpResponse('Błąd walidacji danych', status=400)
