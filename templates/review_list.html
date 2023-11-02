@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block zawartosc %}
+  <div>
+  <h3>Guest review list</h3>
+  <ul>
+    {% for review in guest_review %}
+      <li>
+      <a href="/guest-review/{{ review.id }}">Reservation of {{ review.reservation.apartment.name }} during {{ review.reservation.check_in_date }} - {{ review.reservation.check_out_date }} </a>
+      </li>
+    {% endfor %}
+  </ul>
+  </div>
+
+  <div>
+  <h3>Staff review list</h3>
+  <ul>
+    {% for review in staff_review %}
+      <li>
+      <a href="/staff-review/{{ review.id }}">Reservation of {{ review.reservation.apartment.name }} during {{ review.reservation.check_in_date }} - {{ review.reservation.check_out_date }} </a>
+      </li>
+    {% endfor %}
+  </ul>
+  </div>
+
+
+{% endblock %}
+

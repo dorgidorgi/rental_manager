@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block zawartosc %}
+  <h2>Create a Staff Review</h2>
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      Submit Review
+    </button>
+  {% endbuttons %}
+  </form>
+{% endblock %}
+

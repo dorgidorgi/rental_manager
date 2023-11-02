@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block zawartosc %}
+  <div>
+    <p>Apartment: {{ staff_review.reservation.apartment.name }}</p>
+    <p>From: {{ staff_review.reservation.check_in_date }}</p>
+    <p>To: {{ staff_review.reservation.check_out_date }}</p>
+    <p>Staff: {{ staff_review.staff.username }}</p>
+    <p>Review text: {{ staff_review.review_text }}</p>
+    <p>Rating: {{ staff_review.rating }}</p>
+  </div>
+{% endblock %}

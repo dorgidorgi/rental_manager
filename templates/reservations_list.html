@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block zawartosc %}
+  <div class="" style="
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 48px;;
+">
+    {% for reservation in reservations %}
+      <div class="card" style="width: 18rem;">
+        <img src="{% static "apartment1.jpg" %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ reservation.apartment.name }}</h5>
+          <p class="card-text">Located in: {{ reservation.apartment.location }}</p>
+          <div>
+            {% if user.is_staff and not user.is_superuser %}
+              <a href="/create-staff-review/{{ reservation.id }}/" class="btn btn-primary">Add review</a>
+            {% elif not user.is_superuser %}
+              <a href="/create-guest-review/{{ reservation.id }}/" class="btn btn-primary">Add review</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+{% endblock %}
+

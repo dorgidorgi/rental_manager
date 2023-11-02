@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block zawartosc %}
+  {% if user.is_superuser %}
+    <div class="container mb-5" style="justify-content: end; display: flex;">
+      <a href="/add_apartment/" type="button" class="btn btn-primary">
+        + Add apartment</a>
+    </div>
+  {% endif %}
+  <div class="" style="
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px 48px;
+">
+    {% for apartment in apartments %}
+      <div class="card" style="width: 18rem;">
+        <img src="../static/apartment{{3}}.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ apartment.name }}</h5>
+            {% for badge in apartment.tag.all %}
+              <span class="badge rounded-pill" style="background-color: darkred;">{{ badge.name }}</span>
+            {% endfor %}
+          <p class="card-text">Located in: {{ apartment.location }}</p>
+          <div>
+            <a href="/create_reservation/{{ apartment.id }}/" class="btn btn-primary">Reserve</a>
+            {% if user.is_superuser %}
+              <a type="button" class="btn btn-primary" href="/edit_apartment/{{ apartment.id }}/"> Edit</a>
+              <a type="button" class="btn btn-outline-primary"
+                 href="/delete_apartment/{{ apartment.id }}/"> Delete</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+

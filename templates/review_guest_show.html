@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block zawartosc %}
+  <div>
+    <p>Apartment: {{ guest_review.reservation.apartment.name }}</p>
+    <p>From: {{ guest_review.reservation.check_in_date }}</p>
+    <p>To: {{ guest_review.reservation.check_out_date }}</p>
+    <p>Guest: {{ guest_review.guest.username }}</p>
+    <p>Review text: {{ guest_review.review_text }}</p>
+    <p>General review: {{ guest_review.general_review }}</p>
+    <p>Cleanness: {{ guest_review.cleanness }}</p>
+    <p>Localization: {{ guest_review.localization }}</p>
+    <p>Communication: {{ guest_review.communication }}</p>
+    <p>Check-in: {{ guest_review.check_in }}</p>
+    <p>Offer Consistence: {{ guest_review.offer_consistence }}</p>
+  </div>
+{% endblock %}
