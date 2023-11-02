@@ -22,7 +22,7 @@ class UserCreateForm(forms.ModelForm):
         password = data['password']
         password2 = data['password2']
         if password != password2:
-            raise ValidationError('Hasła nie są takie same')
+            raise ValidationError('Passwords differ. Correct it')
         return data
 
     def save(self, commit=True):

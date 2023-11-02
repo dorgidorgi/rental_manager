@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block zawartosc %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit">
+    </form>
+    <div class="container">
+    <ul>
+        {% for item in resources %}
+        <li>
+            {{ item.name }}
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+{% endblock %}

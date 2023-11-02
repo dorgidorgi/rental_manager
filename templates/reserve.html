@@ -1,7 +1,12 @@
-{% extends "base.html" %}
+{% extends "base_form.html" %}
 {% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
 
 {% block zawartosc %}
   <h2>Create a Guest Review</h2>
